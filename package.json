@@ -1,6 +1,6 @@
 {
   "name": "@suku-kahanamoku/menu-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My new Nuxt module",
   "repository": "@suku-kahanamoku/menu-module",
   "license": "MIT",
@@ -42,7 +42,8 @@
     "@suku-kahanamoku/common-module": "latest",
     "@suku-kahanamoku/lang-module": "latest",
     "@suku-kahanamoku/ui-module": "latest",
-    "defu": "^6.1.4"
+    "defu": "^6.1.4",
+    "path-to-regexp": "^8.2.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.6.2",
