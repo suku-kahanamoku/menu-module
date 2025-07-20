@@ -20,24 +20,7 @@ defineProps<IMainMenu>();
 const isOpen = defineModel<boolean>("isOpen");
 /* const auth = useAuthStore(); */
 const { routes, menuItem } = useMenuItems();
-const cashdesk = useCashdeskStore();
 const localePath = useLocalePath();
-
-const userMenuItems = computed(() => {
-  const admin = menuItem("admin")!;
-  admin.to = localePath(admin.to!);
-  const profile = menuItem("admin_profile")!;
-  profile.to = localePath(profile.to!);
-  return [
-    [admin, profile],
-    /* [
-      {
-        label: "$.navbar.logout",
-        onSelect: auth.logout,
-      },
-    ], */
-  ];
-});
 </script>
 
 <template>
@@ -106,24 +89,6 @@ const userMenuItems = computed(() => {
             >{{ $tt(routes.signup?.meta?.title as string) }}</UButton
           >
         </div>
-
-        <!-- shopping cart -->
-        <client-only>
-          <UChip
-            :show="cashdesk.carts?.length ? true : false"
-            color="secondary"
-            :text="cashdesk.carts?.length"
-            size="3xl"
-          >
-            <UButton
-              :to="routes.cashdesk?.path"
-              icon="i-heroicons-shopping-cart"
-              class="rounded-full cursor-pointer"
-              variant="ghost"
-              :aria-label="$tt('$.aria.cart')"
-            />
-          </UChip>
-        </client-only>
 
         <!-- toggle light & dark mode -->
         <UButton
