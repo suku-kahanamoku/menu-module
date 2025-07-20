@@ -18,7 +18,7 @@ import { type ISlideMenu } from "../types/SlideMenu.interface";
 defineProps<ISlideMenu>();
 
 const isOpen = defineModel<boolean>("isOpen");
-const auth = useAuthStore();
+/* const auth = useAuthStore(); */
 const { routes } = useMenuItems();
 const localePath = useLocalePath();
 </script>
@@ -45,7 +45,7 @@ const localePath = useLocalePath();
       </div>
     </template>
 
-    <template v-if="!auth.loggedIn" #footer>
+    <!-- <template v-if="!auth.loggedIn" #footer>
       <div class="flex items-center gap-4 w-full">
         <UButton
           :to="localePath(routes.login?.path)"
@@ -65,6 +65,6 @@ const localePath = useLocalePath();
           >{{ $tt(routes.signup?.meta?.title as string) }}</UButton
         >
       </div>
-    </template>
+    </template> -->
   </USlideover>
 </template>

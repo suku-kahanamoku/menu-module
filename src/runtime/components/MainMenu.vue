@@ -18,7 +18,7 @@ import { type IMainMenu } from "../types/MainMenu.interface";
 defineProps<IMainMenu>();
 
 const isOpen = defineModel<boolean>("isOpen");
-const auth = useAuthStore();
+/* const auth = useAuthStore(); */
 const { routes, menuItem } = useMenuItems();
 const cashdesk = useCashdeskStore();
 const localePath = useLocalePath();
@@ -30,12 +30,12 @@ const userMenuItems = computed(() => {
   profile.to = localePath(profile.to!);
   return [
     [admin, profile],
-    [
+    /* [
       {
         label: "$.navbar.logout",
         onSelect: auth.logout,
       },
-    ],
+    ], */
   ];
 });
 </script>
@@ -66,7 +66,7 @@ const userMenuItems = computed(() => {
       <!-- menu napravo -->
       <div class="flex items-center gap-4">
         <!-- pokud je to prihlasene, zobrazi uzivatelske menu -->
-        <UDropdownMenu
+        <!-- <UDropdownMenu
           v-if="auth.loggedIn"
           :items="userMenuItems"
           :popper="{ placement: 'bottom-start' }"
@@ -88,10 +88,10 @@ const userMenuItems = computed(() => {
           <template #item="{ item }">
             <span class="truncate">{{ $tt(item.label!) }}</span>
           </template>
-        </UDropdownMenu>
+        </UDropdownMenu> -->
 
         <!-- jinak zobrazi login a signup menu -->
-        <div v-else class="hidden lg:flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-4">
           <UButton
             :to="localePath(routes.login?.path)"
             class="text-secondary-500 dark:text-secondary-400"
