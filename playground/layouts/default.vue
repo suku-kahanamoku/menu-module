@@ -31,7 +31,7 @@ const isOpen = ref(false);
     <CmpMainMenu v-model:is-open="isOpen" :config="{}" :menu-items="menuItems">
       <template #logo>
         <ULink :to="localePath('/')" class="h-full">
-          <UiLogo />
+          Logo
         </ULink>
       </template>
     </CmpMainMenu>
@@ -42,7 +42,7 @@ const isOpen = ref(false);
       :config="{ side: 'right', ui: { title: 'h-8' } }"
     >
       <template #logo>
-        <UiLogo />
+        Logo
       </template>
     </CmpSlideMenu>
 

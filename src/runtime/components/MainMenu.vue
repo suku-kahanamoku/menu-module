@@ -32,7 +32,7 @@ const localePath = useLocalePath();
     >
       <!-- logo -->
       <ULink :to="localePath('/')" class="h-full">
-        <UiLogo />
+        Logo
       </ULink>
 
       <!-- prostredni menu -->
