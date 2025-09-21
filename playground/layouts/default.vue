@@ -7,21 +7,9 @@ const menuItems = [
     to: "/#about",
   },
   {
-    label: "$.navbar.wine",
-    to: "/wine",
-  },
-  {
-    label: "$.navbar.taste",
-    to: "/#tasting",
-  },
-  {
     label: "$.navbar.contact",
     to: "/#contact",
-  },
-  {
-    label: "$.navbar.gallery",
-    to: "/gallery",
-  },
+  }
 ];
 const isOpen = ref(false);
 </script>
@@ -30,9 +18,7 @@ const isOpen = ref(false);
   <div class="min-h-screen flex flex-col">
     <CmpMainMenu v-model:is-open="isOpen" :config="{}" :menu-items="menuItems">
       <template #logo>
-        <ULink :to="localePath('/')" class="h-full">
-          Logo
-        </ULink>
+        <ULink :to="localePath('/')" class="h-full"> Logo </ULink>
       </template>
     </CmpMainMenu>
 
@@ -41,9 +27,7 @@ const isOpen = ref(false);
       :menu-items="menuItems"
       :config="{ side: 'right', ui: { title: 'h-8' } }"
     >
-      <template #logo>
-        Logo
-      </template>
+      <template #logo> Logo </template>
     </CmpSlideMenu>
 
     <main class="flex-1 flex">

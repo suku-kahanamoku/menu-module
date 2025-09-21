@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLocalePath } from "#imports";
+import { useLocalePath, useMenuItems } from "#imports";
 
 import { type IMainMenu } from "../types/MainMenu.interface";
 
@@ -31,9 +31,7 @@ const localePath = useLocalePath();
       class="max-w-screen-xl mx-auto px-5 w-full h-16 flex flex-row justify-between items-center gap-4"
     >
       <!-- logo -->
-      <ULink :to="localePath('/')" class="h-full">
-        Logo
-      </ULink>
+      <ULink :to="localePath('/')" class="h-full"> Logo </ULink>
 
       <!-- prostredni menu -->
       <nav v-if="menuItems?.length" class="hidden w-auto lg:flex">
@@ -97,7 +95,7 @@ const localePath = useLocalePath();
           "
           class="rounded-full cursor-pointer"
           variant="ghost"
-          :aria-label="$tt('$.aria.mode')"
+          aria-label="Theme button"
           @click="
             $colorMode.preference =
               $colorMode.value === 'dark' ? 'light' : 'dark'
@@ -111,7 +109,7 @@ const localePath = useLocalePath();
           icon="i-heroicons-bars-3"
           square
           variant="ghost"
-          :aria-label="$tt('$.aria.hamburger')"
+          aria-label="Hamburger menu"
           @click="isOpen = true"
         />
       </div>
