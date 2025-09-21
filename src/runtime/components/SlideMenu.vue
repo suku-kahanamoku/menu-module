@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLocalePath } from "#imports";
+import { useLocalePath, useMenuItems } from "#imports";
 
 import { type ISlideMenu } from "../types/SlideMenu.interface";
 
