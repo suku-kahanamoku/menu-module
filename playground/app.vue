@@ -4,7 +4,7 @@ const {
 } = useLang();
 </script>
 <template>
-  <UApp :locale="locale">
+  <UApp>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

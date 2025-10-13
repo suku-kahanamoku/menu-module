@@ -9,18 +9,14 @@ const menuItems = [
   {
     label: "$.navbar.contact",
     to: "/#contact",
-  }
+  },
 ];
-const isOpen = ref(false);
+const isOpen = ref(true);
 </script>
 
 <template>
   <div class="min-h-screen flex flex-col">
-    <CmpMainMenu v-model:is-open="isOpen" :config="{}" :menu-items="menuItems">
-      <template #logo>
-        <ULink :to="localePath('/')" class="h-full"> Logo </ULink>
-      </template>
-    </CmpMainMenu>
+    <CmpHeader />
 
     <CmpSlideMenu
       v-model:is-open="isOpen"
@@ -30,7 +26,7 @@ const isOpen = ref(false);
       <template #logo> Logo </template>
     </CmpSlideMenu>
 
-    <main class="flex-1 flex">
+    <main>
       <slot></slot>
     </main>
 
