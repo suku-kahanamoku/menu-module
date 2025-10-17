@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLocalePath, useMenuItems } from "#imports";
+import { useLocalePath } from "#imports";
 
 import { type ISlideMenu } from "../types/SlideMenu.interface";
 
@@ -18,8 +18,6 @@ import { type ISlideMenu } from "../types/SlideMenu.interface";
 defineProps<ISlideMenu>();
 
 const isOpen = defineModel<boolean>("isOpen");
-/* const auth = useAuthStore(); */
-const { routes } = useMenuItems();
 const localePath = useLocalePath();
 </script>
 
