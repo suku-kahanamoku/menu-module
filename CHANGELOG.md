@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.13
+
+[compare changes](https://undefined/undefined/compare/v1.0.12...v1.0.13)
+
+### 🩹 Fixes
+
+- Resolve path-to-regexp import issue and simplify usePath function (2ae21f1)
+
+### ❤️ Contributors
+
+- Suche Kahanamoku <sukusovi@gmail.com>
+
 ## v1.0.12
 
 [compare changes](https://undefined/undefined/compare/v1.0.11...v1.0.12)
