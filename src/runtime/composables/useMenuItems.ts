@@ -345,20 +345,20 @@ export function usePath(
   path: string,
   route: RouteLocationNormalizedLoaded
 ): string {
-  const keys: Key[] = [];
+  /* const keys: Key[] = [];
   try {
     pathToRegexp(path, keys);
-  } catch (error) {}
+  } catch (error) {} */
 
   let result = path;
 
-  keys.forEach((key) => {
+  /* keys.forEach((key) => {
     const paramName = key.name.toString();
     const paramValue = route.params[paramName] as string;
     if (paramValue) {
-      result = result.replace(`:${paramName}`, paramValue);
+      result = result.replace(`_${paramName}`, paramValue);
     }
-  });
+  }); */
 
   return result;
 }

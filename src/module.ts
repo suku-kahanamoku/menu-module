@@ -55,6 +55,22 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url);
 
+    _nuxt.hook("i18n:registerModule", (register) => {
+      register({
+        langDir: resolve("./runtime/assets/locales"),
+        locales: [
+          {
+            code: "en",
+            file: "en.json",
+          },
+          {
+            code: "cs",
+            file: "cs.json",
+          },
+        ],
+      });
+    });
+
     // Přidání runtime komponent
     addComponentsDir({
       path: resolve("./runtime/components"),
@@ -89,21 +105,5 @@ export default defineNuxtModule<ModuleOptions>({
     if (!hasNuxtModule("@suku-kahanamoku/ui-module")) {
       await installModule("@suku-kahanamoku/ui-module");
     }
-
-    _nuxt.hook("i18n:registerModule", (register) => {
-      register({
-        langDir: resolve("./runtime/assets/locales"),
-        locales: [
-          {
-            code: "en",
-            file: "en.json",
-          },
-          {
-            code: "cs",
-            file: "cs.json",
-          },
-        ],
-      });
-    });
   },
 });
