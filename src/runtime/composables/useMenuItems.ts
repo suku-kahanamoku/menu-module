@@ -1,5 +1,4 @@
 import type { RouteRecord, RouteLocationNormalizedLoaded } from "vue-router";
-import { match } from "path-to-regexp";
 import { computed, useLang, useRoute, useRouter } from "#imports";
 
 import { REMOVE_LAST_STRING } from "@suku-kahanamoku/common-module/utils";
@@ -183,13 +182,43 @@ export function useMenuItems(to?: RouteLocationNormalizedLoaded) {
    * ```
    */
   const _getRouteByPath = (path: string): RouteRecord | undefined => {
-    for (const tmpRoute of currentRoutes.value) {
-      // transformuje /products/:page/:subpage na regex, ktery zvladne pak v routerMatcher(/products/titulek--$1234/subtitule--$9876)
-      const routeMatcher = match(tmpRoute.path);
-      if (routeMatcher(path)) {
-        return tmpRoute;
+    // Použijeme Vue Router resolver pro nalezení route
+    try {
+      const resolved = router.resolve(path);
+      if (resolved && resolved.matched && resolved.matched.length > 0) {
+        const lastMatch = resolved.matched[resolved.matched.length - 1];
+        // Najdeme odpovídající route v currentRoutes
+        if (lastMatch) {
+          return currentRoutes.value.find(route => route.name === lastMatch.name);
+        }
+      }
+    } catch (error) {
+      // Pokud resolver selže, pokusíme se najít route manuálně
+      for (const tmpRoute of currentRoutes.value) {
+        const pathSegments = path.split('/').filter(Boolean);
+        const routeSegments = tmpRoute.path.split('/').filter(Boolean);
+        
+        if (routeSegments.length === pathSegments.length) {
+          let matches = true;
+          for (let i = 0; i < routeSegments.length; i++) {
+            const routeSegment = routeSegments[i];
+            const pathSegment = pathSegments[i];
+            
+            // Pokud segment nezačíná ':', musí se přesně shodovat
+            if (routeSegment && pathSegment && !routeSegment.startsWith(':') && routeSegment !== pathSegment) {
+              matches = false;
+              break;
+            }
+          }
+          
+          if (matches) {
+            return tmpRoute;
+          }
+        }
       }
     }
+    
+    return undefined;
   };
 
   /**
