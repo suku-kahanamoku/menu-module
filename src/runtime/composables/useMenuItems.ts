@@ -1,5 +1,5 @@
 import type { RouteRecord, RouteLocationNormalizedLoaded } from "vue-router";
-import { match, pathToRegexp, type Key } from "path-to-regexp";
+import { match } from "path-to-regexp";
 import { computed, useLang, useRoute, useRouter } from "#imports";
 
 import { REMOVE_LAST_STRING } from "@suku-kahanamoku/common-module/utils";
@@ -345,20 +345,14 @@ export function usePath(
   path: string,
   route: RouteLocationNormalizedLoaded
 ): string {
-  /* const keys: Key[] = [];
-  try {
-    pathToRegexp(path, keys);
-  } catch (error) {} */
-
   let result = path;
 
-  /* keys.forEach((key) => {
-    const paramName = key.name.toString();
-    const paramValue = route.params[paramName] as string;
-    if (paramValue) {
-      result = result.replace(`_${paramName}`, paramValue);
+  // Jednoduše nahradíme všechny parametry (:param) hodnotami z route.params
+  Object.entries(route.params).forEach(([paramName, paramValue]) => {
+    if (paramValue && typeof paramValue === 'string') {
+      result = result.replace(`:${paramName}`, paramValue);
     }
-  }); */
+  });
 
   return result;
 }
