@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.14
+
+[compare changes](https://undefined/undefined/compare/v1.0.13...v1.0.14)
+
+### 🩹 Fixes
+
+- Completely remove path-to-regexp dependency and implement alternative route matching (1ffe63f)
+
+### ❤️ Contributors
+
+- Suche Kahanamoku <sukusovi@gmail.com>
+
 ## v1.0.13
 
 [compare changes](https://undefined/undefined/compare/v1.0.12...v1.0.13)
