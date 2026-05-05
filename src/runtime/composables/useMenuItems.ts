@@ -1,5 +1,6 @@
 import type { RouteRecord, RouteLocationNormalizedLoaded } from "vue-router";
-import { computed, useLang, useRoute, useRouter } from "#imports";
+import { computed } from "vue";
+import { useLang, useRoute, useRouter } from "#imports";
 
 import { REMOVE_LAST_STRING } from "@suku-kahanamoku/common-module/utils";
 

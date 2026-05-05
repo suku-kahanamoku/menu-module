@@ -7,7 +7,6 @@ import {
   installModule,
   addComponentsDir,
 } from "@nuxt/kit";
-import defu from "defu";
 
 /**
  * @typedef {Object} ModuleOptions
