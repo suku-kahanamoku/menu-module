@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.16
+
+[compare changes](https://undefined/undefined/compare/v1.0.15...v1.0.16)
+
+### 🏡 Chore
+
+- Update dependencies (52f4fb6)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.15
 
 [compare changes](https://undefined/undefined/compare/v1.0.14...v1.0.15)
